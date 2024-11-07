@@ -1,0 +1,99 @@
+#1 SIMPLE PROGRAM|||||||||||||||||||||||||||||||||||||||||
+print('Hello World!')
+name = input("Enter your name\n")
+print("Hello World!\n" + name)
+print("")
+print("")
+#2 REPAIR THE CODE|||||||||||||||||||||||||||||||||||||||||
+var1 = 2
+var2 = 3
+var1 += 2
+var3 = var1
+var1 *= 3
+var4 = var1 / var2
+#3 CONDITIONALS|||||||||||||||||||||||||||||||||||||||||
+#a)
+age = int(input("Enter your age\n"))
+if age >=18 and age <=100:
+    print("Autorization allowed")
+else:
+    print("refusal")
+#b)
+a = int(input("Enter an number\n"))
+if a > 0:
+    print("|a| = ", a)
+else:
+    print("|a| = ", --a)
+    print("")
+    print("")
+#c)
+a = 50
+b = 10
+if a > b:
+    print("Hello World")
+    print("")
+    print("")
+#d)
+number = int(input("Enter number"))
+if number / 2:
+    print("Even number")
+else:
+    print("Odd number")
+    print("")
+    print("")
+#e)
+firstNumber = float(input("Enter first num\n"))
+secondNumber = float(input("Enter second num\n"))
+if firstNumber > secondNumber:
+    print("largest number is ", firstNumber)
+else:
+    print("largest number is ", secondNumber)
+#f)
+x = int(input("Enter number"))
+if 1 <= x <= 10:
+    print("Is in compartment")
+else:
+    print("Is not in compartment")
+    if 17 <= x <= 21:
+        print("Is in compartment")
+    else:
+        print("does not belong to compartments[1,10] | [17,21]")
+#g)
+y = int(input("Enter number"))
+if y % 3 == 0 and y % 5 == 0:
+    print("podzielna przez 3 i 5")
+elif y % 3 == 0:
+    print("podzielna przez 3 ale nie przez 5")
+elif y % 5 == 0:
+    print("podzielna przez 5 ale nie przez 3")
+elif y % 5 == 0:
+    print("liczba nie jest podzielna ani przez 3 ani przez 5")
+#h)
+pierwsza1 = int(input("Podaj pierwsza liczbe\n"))
+druga2 = int(input("Podaj druga liczbe\n"))
+print(pierwsza1 + druga2)
+print(pierwsza1 - druga2)
+print(pierwsza1 * druga2)
+print(pierwsza1 / druga2)
+#i)
+temp = float(input("Temperature"))
+jednostka = input("F | C ")
+if jednostka == "C":
+    temperatura_przeksztalcona = (temp * 9/5) + 32
+    print(f"{temp}C to {temperatura_przeksztalcona}F")
+elif jednostka == "F":
+    temperatura_przeksztalcona = (temp - 32) * 5/9
+    print(f"{temp}F to {temperatura_przeksztalcona} C")
+else:
+    print("Nieprawidłowa jednostka")
+#j)
+fir = int(input("First num"))
+sec = int(input("Second num"))
+thi = int(input("Third num"))
+if fir**2 + sec**2 == thi**2 or fir**2 + thi**2 == sec**2 or sec**2 + thi**2 == fir**2:
+    print("Jest to trojka")
+else:
+    print("nie jest to trojka")
+
+
+
