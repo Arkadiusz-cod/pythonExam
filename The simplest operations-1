@@ -1,0 +1,154 @@
+#1 POLSKIE ZNAKI ORAZ ZMIENNE|||||||||||||||||||||||||||||||||||||||||
+from xml.dom.minidom import ProcessingInstruction
+
+print("polskie znaki ęóąśłżźćń")
+ą = 5
+ą
+print(ą)
+print("Marek\nTomasz\nWaldemar\nRobert\nCristiano ronaldo")
+print("ZUL" * 4)
+print(4 + 3)
+print("Harry potter" * 100)
+a = 3
+b = 3
+print("a + b =", a + b)
+print("a do potegi b =", a ** b)
+print("")
+print("")
+#2 OBLICZENIA PYTHON|||||||||||||||||||||||||||||||||||||||||||||||||||
+p = (9 + 4 * (5 ** 0.5)) ** 0.5
+print(p)
+s = (100 - 4 * (17 ** 0.5)) ** 0.3333333
+print(s)
+r = (9**(-1/4) + (3 * 3**0.5)**(4/3))
+print(r)
+t = (8**(-1/6) - (2 * 2 **0.5)**(-5/6))
+print(t)
+e = (8**(-1/6) + 1 / (2 * 2**2)**(5/6))
+print(e)
+g = (5 + 2 * 6**0.5)**0.5 - 1 / (5 + 2 * 6**0.5)**0.5
+print(g)
+print("")
+print("")
+#3 OBLICZENIA PYTHON PI ||||||||||||||||||||||||||||||||||||||||||||||||
+pi = 3.14151926
+k = 2.718281828
+print(25*pi)
+print(pi**2)
+print(18 * k + pi)
+print(k*(pi + 2))
+print((12**0.5)*k)
+print(k - pi)
+print(pi / e**2)
+print(2**0.5)
+print(pi**0.5)
+print("")
+print("")
+#4 OBLICZENIA STOPNIE | RADIANY ||||||||||||||||||||||||||||||||||||||||||
+#STOPNIE NA RADIANY~~~~~~~~~~~
+print(105 * pi / 180)
+print(35 * pi / 180)
+print(45 * pi / 180)
+print(185 * pi / 180)
+print(-95 * pi / 180)
+print(712 * pi / 180)
+print("")
+print("")
+#RADIANY NA STOPNIE~~~~~~~~~~~
+print(2 * pi / 3)
+print(-pi / 4 )
+print(5*pi / 6)
+print(45*pi / 30)
+print(k * pi)
+print(7*pi / 12)
+print("")
+print("")
+#5 KONWERTOWANIE LICZB||||||||||||||||||||||||||||||||||||||||||||||||||||||
+#BINARNE NA DZIESIĘTNE~~~~~~~~~~~
+print(int('1011', 2))
+print(int('1111', 2))
+print(int('101011', 2))
+print(int('1101', 2))
+print(int('10000', 2))
+print(int('11100', 2))
+print("")
+print("")
+#DZIESIĘTNE NA BINARNE~~~~~~~~~~~
+print(bin(64)[2:])
+print(bin(28)[2:])
+print(bin(12)[2:])
+print(bin(1235)[2:])
+print(bin(29649)[2:])
+print(bin(8912556)[2:])
+print("")
+print("")
+#ÓSEMKOWE NA DZIESIĘTNE~~~~~~~~~~~
+print(int('71', 8))
+print(int('2375', 8))
+print(int('16230', 8))
+print(int('777', 8))
+print(int('11111', 8))
+print(int('74367', 8))
+print("")
+print("")
+#DZIESIĘTNE NA ÓSEMKOWY ~~~~~~~~~~~
+print(oct(64))
+print(oct(512))
+print(oct(273))
+print(oct(918))
+print(oct(90860))
+print(oct(5968939))
+print("")
+print("")
+#SZESNASTKOWY NA DZIESIETNE~~~~~~~~~~~
+print(int('12F', 16))
+print(int('7682', 16))
+print(int('A3561', 16))
+print(int('99', 16))
+print(int('AB12C', 16))
+print(int('341D', 16))
+print("")
+print("")
+#DZIESIĘTNE NA SZESNASTKOWE~~~~~~~~~~~
+print(hex(60))
+print(hex(123))
+print(hex(256))
+print(hex(147178))
+print(hex(870))
+print(hex(7450091))
+print("")
+print("")
+#BINARNE NA SZESNASTKOWE~~~~~~~~~~~
+print(hex(int('10000', 2))[2:])
+print(hex(int('101', 2 ))[2:])
+print(hex(int('100011', 2))[2:])
+print(hex(int('1101', 2))[2:])
+print(hex(int('101100', 2))[2:])
+print(hex(int('11', 2))[2:])
+print("")
+print("")
+#SZESNASTKOWE NA BINARNE~~~~~~~~~~~
+print(bin(int('F', 16)))
+print(bin(int('2C', 16)))
+print(bin(int('AF1', 16)))
+print(bin(int('147', 16)))
+print(bin(int('8', 16)))
+print(bin(int('3B11', 16)))
+print(bin(int('16', 16)))
+#6 ZADANIE HURTOWNIA|||||||||||||||||||||||||||||||||||||||||||||||||||||
+#a)
+i = (670 *0.6)
+print(i * 1.4)
+print("")
+#b)
+o = 185
+z = 217
+print(o + z)
+print("")
+#c)
+pierwsza = 15
+druga = 14
+trzecia = 11
+q = (8 * pierwsza + 4 * druga)
+print(q / 11)
+
