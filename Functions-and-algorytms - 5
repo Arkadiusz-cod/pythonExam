@@ -1,0 +1,112 @@
+#1 FUNKCJE I ALGORYTMY|||||||||||||||||||||||||||||||||||||||||
+#a)
+def gmean(*args):
+    first = 1
+    second = 0
+    for num in args:
+        first *= num
+        second += 1
+    return first ** (1 / second)
+numbers = input("Podaj liczby rozdzielone spacjami: ").split()
+res = gmean(*map(float, numbers))
+print(f"Średnia geometryczna wynosi: {res}")
+#b)
+def func(*args):
+    for i in range(1, len(args) + 1):
+        for j in range(i):
+            print(args[j], end=" " if j < i - 1 else "\n")
+func(3, 'piwo', 5)
+print("")
+#2cw Z TRZECH LICZB
+def my_max(a, b, c):
+    if a > b:
+        return a if a > c else c
+    else:
+        return b if b > c else c
+    print(my_max(5,3,7))
+    print(my_max(2,10,5))
+    print(my_max(8,8,4))
+#b)
+def my_maxi(*args):
+    max_value = args[0]
+    for num in args:
+        if num > max_value:
+            max_value = num
+    return max_value
+def main():
+    print(my_maxi(4,2,7,3,7,2))
+    print(my_maxi(12,32,43,76,98))
+    print(my_maxi(23,432,423))
+main()
+#REKURENCYJNA FUNKCJA
+def fibonacci_recusive(n):
+    global recursive_additions
+    if n <= 1:
+        return n
+    recursive_additions += 1
+    return fibonacci_recusive(n - 1) + fibonacci_recusive(n - 2)
+print("Rekurencyjne: ")
+for n in [10, 29, 35]:
+    recursive_additions = 0
+    result = fibonacci_recusive(n)
+    print(f"Fib({n}) = {result}, Dodania: {recursive_additions}")
+#NIREKURENCYJNA FUNKCJA
+non_recursive_additions = 0
+def fibonacci_non_recursive(n):
+    global non_recursive_additions
+    a, b = 0, 1
+    for _ in range(1, n):
+        non_recursive_additions += 1
+        a, b = b, a + b
+    return b if n > 0 else 0
+print("Nierekurencyjne")
+for n in [10, 29, 100]:
+    non_recursive_additions = 0
+    result = fibonacci_non_recursive(n)
+    print(f"Fib({n}) = {result}, dodania: {non_recursive_additions}")
+print("")
+#4cw
+def eukalides(a, b):
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+def main():
+        print("TESTY DLA ALGORYTMU EUKLIDESA: ")
+        print(f"NWD(48, 18) = {eukalides(48, 18)}")
+        print(f"NWD(54,24) = {eukalides(54, 24)}")
+        print(f"NWD (17, 13) = {eukalides(17, 13)}")
+        print(f"NWD (100, 25) = {eukalides(100, 25)}")
+        print(f"NWD(81, 27) = {eukalides(81, 27)}")
+main()
+def nwd(x, y):
+    while y != 0:
+        x, y = y, x % y
+    return x
+
+def nieskracalny_ulamek(a, b):
+    dzielnik = nwd(a, b)
+    p = a // dzielnik
+    q = b // dzielnik
+    return p, q
+
+def main():
+    print("TESTY DLA NIESKRACALNEGO UŁAMKA: ")
+    print(f"Nieskracalny_ulamek(4, 8) = {nieskracalny_ulamek(4, 8)}")
+    print(f"Nieskracalny_ulamek(15, 25) = {nieskracalny_ulamek(15, 25)}")
+    print(f"Nieskracalny_ulamek(9, 6) = {nieskracalny_ulamek(9, 6)}")
+    print(f"Nieskracalny_ulamek(17, 31) = {nieskracalny_ulamek(17, 31)}")
+    print(f"Nieskracalny_ulamek(100, 25) = {nieskracalny_ulamek(100, 25)}")
+main()
+#5
+def silnia(n):
+    count = 0
+    sila = 5
+    while n >= sila:
+        count += n // sila
+        sila *= 5
+    return count
+print(silnia(6))
+print(silnia(10))
+print(silnia(25))
+print(silnia(100))
