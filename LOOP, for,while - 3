@@ -1,0 +1,121 @@
+#1 PĘTLE|||||||||||||||||||||||||||||||||||||||||
+#a)
+import random
+
+suma_parzystych = 0
+for i in range(2, 101, 2):
+    suma_parzystych += i
+    print("Suma wszystkich parzystych od 2 do 100 to : ", suma_parzystych)
+#b)
+parzyste = 0
+nieparzyste = 0
+for x in range(5):
+    liczba = int(input("Podaj pierwsza liczbe"))
+
+    if liczba % 2 == 0:
+        parzyste += 1
+    else:
+        nieparzyste += 1
+        print("liczba parzystych: ", parzyste)
+        print("liczba nieparzystych: ", nieparzyste)
+#c)
+suma_kwadratow = 0
+for r in range(1, 101):
+    suma_kwadratow += r ** 2
+    print("Suma kwadratow: ", suma_kwadratow)
+#d)
+potega = 0
+for u in range(1, 64):
+    potega += 2 ** u
+    print("Suma potęg liczby 2 to: ", potega)
+#e)
+a = int(input("Pierwsza"))
+b = int(input("Druga"))
+if a > b:
+    suma_parzystych = 0
+else:
+    suma_nieparzystych = 0
+    for p in range(a, b + 1):
+
+        if p % 2 != 0:
+            suma_nieparzystych += p
+            print("Suma nieparzystych to: ", suma_nieparzystych)
+#f)
+first = int(input("first number"))
+for k in range(1, first + 1):
+    for l in range(1, k + 1):
+        print(l, end=" ")
+    print()
+#g)
+n = int(input("wprowadz cyfre"))
+suma = 0.0
+for j in range(n):
+    m = float(input(f"Podaj liczbę rzeczywistą {j+1}: "))
+    suma += m
+    print("Suma podanych liczb to: ", suma)
+#h)
+z = int(input("pierwsza liczba"))
+licznik = 0
+for p in range(z):
+    v = float(input(f"podaj liczbe rzeczywista {p+1}"))
+    if v % 3 == 0 and v % 5 != 0:
+        licznik += 1
+        print("Licznik tych liczb to: ", licznik)
+#2 WHILE|||||||||||||||||||||||||||||||||||||||||
+#a)
+licznik_znakow = 0
+while input("Wprowadź znak(wprowadź 'x' aby zakończyć): ") != 'x':
+    licznik_znakow += 1
+    print("Liczba wprowadzonych znakow(bez znaku 'x') to: ", licznik_znakow)
+#b)
+while True:
+    num = float(input("Podaj liczbę: "))
+    if 1 <= num <= 10:
+        break
+    print(2 * num)
+#c)
+for h in range(3):
+    while True:
+        c = int(input("podaj liczby: "))
+        if c >= 0:
+            break
+if c == 0:
+   print("jest zero")
+else:
+   print("nie ma zera")
+#d)
+w = random.randint(1, 100)
+proby = 0
+while True:
+    fir = int(input("podaj liczbe od 1 do 100: "))
+    proby += 1
+    if fir < w:
+        print("szukana wartosc jest wieksza")
+    elif fir > w:
+        print("szukana wartosc jest wieksza")
+    else:
+        print(f"Gratulację odgadłeś liczbę {w} w {proby} próbach. ")
+        break
+#e)
+d = int(input("Podaj liczbę"))
+if d <= 2:
+    print("liczba musi być większa od 2 ")
+else:
+    pot = 1
+    q = 0
+    while pot <= d:
+        print(f"3^{q} = {pot}")
+        q += 1
+        pot = 3 ** q
+#f)
+maks_proby = 3
+for o in range(maks_proby):
+    numer_miesiaca = int(input(f"Podaj numer miesiaca proba {o+1} / {maks_proby}"))
+
+    if 1 <= numer_miesiaca <= 12:
+        print(f"Poprawny numer miesiaca {numer_miesiaca}")
+        break
+    else:
+        print("niepoprawny numer miesiaca. Sprobuj ponownie")
+else:
+    print("Przekroczyłeś dozwoloną ilość prób")
