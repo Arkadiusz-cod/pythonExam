@@ -1,0 +1,177 @@
+#1|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+import re
+from random import random
+
+napis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+#a) dlugosc napisu
+print(len(napis))
+#b)
+znak_12 = napis[12]
+znak_7 = napis[7]
+znak_minus_4 = napis[-4]
+print("12 : ",znak_12)
+print("7 : ",znak_7)
+print("-4 : ",znak_minus_4)
+print(f"połączony napis: {znak_12 + znak_7 + znak_minus_4}")
+#c)
+print(napis * 3)
+print(napis + znak_7 + znak_minus_4)
+#d)
+print(napis.lower())
+#e)
+znak_34 = napis[34]
+znak_32 = napis[32]
+znak_36 = napis[36]
+print(znak_36 * 3 + znak_34 * 2 + znak_32 * 4)
+#2|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+#a)
+imie = "Arkadiusz"
+Nazwisko = "Zaremba"
+#b)
+imie, Nazwisko = Nazwisko, imie
+print(f"Po zamianie miejscami imię: {imie}, Nazwisko: {Nazwisko}")
+#c)
+anagram_imie = ' '.join(random.sample(imie, len(imie)))
+anagram_nazwisko = ' '.join(random.sample(Nazwisko, len(Nazwisko)))
+print(f"Anagram imienia: {anagram_imie}")
+print(f"Anagram Nazwiska: {anagram_nazwisko}")
+#d)
+inicjaly = imie[0] + Nazwisko[0]
+print(f"inicjaly : {inicjaly}")
+#e)
+nowe_imie = Nazwisko[0] + imie[1:]
+nowe_nazwisko = imie[0] + Nazwisko[1:]
+print(nowe_imie,nowe_nazwisko)
+#3|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+#a)
+def parzyste_indeksy(napis):
+    return napis[::2]
+#b)
+def ostatnie_znaki(napis, n=1):
+    return napis[-n:]
+#c)
+def odwroc_napis(napis):
+    return napis[::-1]
+#d)
+def czy_palindrom(napis):
+    napis = re.sub(r'[^a-zA-Z0-9]','',napis).lower()
+#e)
+def liczba_liter(napis, litera):
+    return napis.lower().count(litera.lower())
+#f)
+def liczba_slow(napis):
+    return len(napis.split())
+#g)
+def liczba_samoglosek(napis):
+    samogloski = "aeiousAEIOU"
+    return sum(1 for char in napis if char in samogloski)
+#h)
+def liczba_liter_bez_spacji(napis):
+    return len(re.sub(r'[^a-zA-Z]','',napis))
+#funkcja calkowita
+tekst = "A man a plan a canal Panama"
+print(parzyste_indeksy(tekst))
+print(ostatnie_znaki(tekst, 1))
+print(ostatnie_znaki(tekst, 3))
+print(odwroc_napis(tekst))
+print(czy_palindrom(tekst))
+print(liczba_liter(tekst, 'a'))
+print(liczba_slow(tekst))
+print(liczba_samoglosek(tekst))
+print(liczba_liter_bez_spacji(tekst))
+#4|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+#a)
+def wstaw_imie_i_data(imie, data_urodzenia):
+    return 'My name is {}. My date of birth is {}.'.format(imie, data_urodzenia)
+
+#b)
+def wstaw_liczby_i_sume(a, b):
+    return '{} + {} = {}'.format(a, b, a + b)
+
+# Przykłady użycia
+imie = "Jan"
+data_urodzenia = "1990-01-01"
+print(wstaw_imie_i_data(imie, data_urodzenia))
+
+a = 5
+b = 3
+print(wstaw_liczby_i_sume(a, b))
+#5||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+def zamien_litery(napis):
+    liczba_zmian = 0
+    napis_zmieniony = []
+
+    for i, char in enumerate(napis):
+        if char == 'a':
+            napis_zmieniony.append('A')
+            liczba_zmian += 1
+        elif char == 'b':
+            napis_zmieniony.append('B')
+            liczba_zmian += 1
+        else:
+            napis_zmieniony.append(char)
+
+
+    if len(napis) % 2 != 0:
+
+        srodkowy_index = len(napis) // 2
+
+        if napis[srodkowy_index] not in ['A', 'B']:
+            napis_zmieniony[srodkowy_index] = napis_zmieniony[srodkowy_index].upper()
+            liczba_zmian += 1
+
+
+    zmieniony_napis = ''.join(napis_zmieniony)
+
+    return zmieniony_napis, liczba_zmian
+
+
+napis = input("Podaj napis: ")
+zmieniony_napis, liczba_zmian = zamien_litery(napis)
+
+print("Zmieniony napis:", zmieniony_napis)
+print("Liczba zmian:", liczba_zmian)
+#6|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+#a)
+def szyfr_ascii(napis, przesuniecie):
+    zaszyfrowany_napis = ''.join([chr(ord(char) + przesuniecie) for char in napis])
+    return zaszyfrowany_napis
+
+# Przykład użycia
+tekst = input("Podaj tekst do zaszyfrowania (ASCII): ")
+przesuniecie = int(input("Podaj wartość przesunięcia (liczba): "))
+zaszyfrowany_tekst = szyfr_ascii(tekst, przesuniecie)
+print("Zaszyfrowany tekst:", zaszyfrowany_tekst)
+#b)
+def szyfr_przestawienie(napis):
+    napis_list = list(napis)
+
+   
+    for i in range(0, len(napis_list) - 1, 2):
+        napis_list[i], napis_list[i + 1] = napis_list[i + 1], napis_list[i]
+
+    return ''.join(napis_list)
+
+
+# Przykład użycia
+tekst = input("Podaj tekst do zaszyfrowania (przestawienie): ")
+zaszyfrowany_tekst = szyfr_przestawienie(tekst)
+print("Zaszyfrowany tekst:", zaszyfrowany_tekst)
+#7||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+import re
+
+def suma_liczb(napis):
+    
+    liczby = re.findall(r'\d+', napis)
+
+    liczby = [int(liczba) for liczba in liczby]
+
+
+    return sum(liczby)
+
+
+tekst = "W Roku Pańskim 1345, władca Henryk 12, na rzecz swoich 143209 poddanych uchwalił dekret o 20 procentowej zniżce podatków"
+
+
+wynik = suma_liczb(tekst)
+print("Suma liczb w napisie:", wynik)
