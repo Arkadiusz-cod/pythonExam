@@ -64,48 +64,56 @@ print(f"Plik {odd_file}: Suma = {odd_sum}, Srednia = {odd_avg}")
 
 import requests
 
-# (a) Load DNA
+#wczytaj plik
+import requests
 url = "http://wmii.uwm.edu.pl/~muranova/WdPSt2024-25/DNA.txt"
-dna_file = "DNA.txt"
 response = requests.get(url)
-with open(dna_file, "w") as file:
-    file.write(response.text.strip())
+dna_sequence = response.text.strip()
 
-with open(dna_file, "r") as file:
-    dna = file.read().strip()
+with open("DNA.txt","w") as file:
+    file.write(dna_sequence)
 
-# (b) Count occurrences of each nitrogen base
-from collections import Counter
 
-counts = Counter(dna)
-print(f"Adenine: {counts['A']}, Cytosine: {counts['C']}, Guanine: {counts['G']}, Thymine: {counts['T']}")
+#policz ile razy występuje w kodzie każda zasada azotowa - adenina, cytozyna,
+guanina, tymina
+adenine_count = dna_sequence.count('A')
+cytosine_count = dna_sequence.count('C')
+guanine_count = dna_sequence.count('G')
+thymine_count = dna_sequence.count('T')
+print(adenine_count,cytosine_count,guanine_count,thymine_count)
 
-# (c) Clean DNA
-clean_dna = dna.replace("N", "").replace("-", "")
-print(f"Clean DNA Length: {len(clean_dna)}")
+#Oczyść DNA z błędów typu N.
+clean_dna_sequence = dna_sequence.replace('N', '').replace('-', '')
+with open("DNA_cleaned.txt","w") as file:
+    file.write(clean_dna_sequence)
 
-# (d) Count GAGA
+#(d) Policz wystąpienia sekwencji GAGA
 print(f"GAGA occurrences: {clean_dna.count('GAGA')}")
 
-# (e) Index of 7 consecutive G
-index_7g = clean_dna.find("G" * 7)
-print(f"Index of 7 consecutive G: {index_7g}")
+# Znajdź miejsce (indeks) w łańcuchu, gdzie występuje 7 guanin z rzędu
+index_7g = clean_dna_sequence.find('G' * 7)
+    if index_7g != -1:
+        print(index_7g)
+    else:
+        print("nie znaleziono")
 
-# (f) Index of last 6 consecutive C
-index_6c = clean_dna.rfind("C" * 6)
-print(f"Index of last 6 consecutive C: {index_6c}")
+#  Znajdź miejsce (indeks), gdzie od końca łańcucha występuje 6 cytozyn
+reversed_index_6c = clean_dna_sequence[::-1].find('C' * 6)
+    if reversed_index_6c != -1:
+        actual_index_6c = len(clean_dna_sequence) - reversed_index_6c - 6
+        print(actual_index_6c)
+    else:
+        print("nie znaleziono")
 
-# (g) Count CTGAAA
-print(f"CTGAAA occurrences: {clean_dna.count('CTGAAA')}")
+# Policz ile razy w kodzie pojawiła się sekwencja CTGAAA
+ctgaaa_count = clean_dna_sequence.count('CTGAAA')
 
-# (h) Count CTGAAA with last A mutated
-import re
-pattern = "CTGAA[A|N|-]"
-print(f"Mutated CTGAAA occurrences: {len(re.findall(pattern, clean_dna))}")
+#  Uwzględnij wątpliwą ostatnią adeninę w CTGAAA
+ pattern = re.compile(r'CTGAA.')
+    matches = pattern.findall(clean_dna_sequence)
+    print({len(matches)})
 
-# (i) Create RNA sequence
-rna = clean_dna.replace("T", "U")
-rna_file = "RNA.txt"
-with open(rna_file, "w") as file:
-    file.write(rna)
-print(f"RNA saved to {rna_file}")
+# Utwórz odpowiadającą nić RNA i zapisz do pliku
+ rna_sequence = clean_dna_sequence('T','U')
+    with open("RNA.txt", "w") as file:
+        file.write(rna_sequence)
