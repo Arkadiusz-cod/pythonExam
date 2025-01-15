@@ -41,32 +41,26 @@ warrior.change_health(-40)
 print(f"{warrior.name} New Attack Power after Rage: {warrior.attack_power()}")
 
 import random
-
-# Part (a): Generate numbers and save to files
 even_file = "even.txt"
 odd_file = "odd.txt"
 
-with open(even_file, "w") as even, open(odd_file, "w") as odd:
+with open(even_file,"w") as even, open(odd_file,"w") as odd:
     for _ in range(100):
-        number = random.randint(-100, 100)
+        number = random.randint(-100,100)
         if number % 2 == 0:
             even.write(f"{number}\n")
         else:
             odd.write(f"{number}\n")
-
-# Part (b): Read files and calculate sum and average
-def calculate_stats(filename):
-    with open(filename, "r") as file:
+def calculate_sum_and_avg(file_name):
+    with open(file_name,"r") as file:
         numbers = [int(line.strip()) for line in file]
         total = sum(numbers)
-        average = total / len(numbers) if numbers else 0
-        return total, average
-
-even_stats = calculate_stats(even_file)
-odd_stats = calculate_stats(odd_file)
-
-print(f"Even - Sum: {even_stats[0]}, Average: {even_stats[1]}")
-print(f"Odd - Sum: {odd_stats[0]}, Average: {odd_stats[1]}")
+        avg = total / len(numbers) if numbers else 0
+        return total,avg
+even_sum,even_avg = calculate_sum_and_avg(even_file)
+odd_sum,odd_avg = calculate_sum_and_avg(even_file)
+print(f"Plik {even_file}: Suma = {even_sum}, Srednia = {even_avg}")
+print(f"Plik {odd_file}: Suma = {odd_sum}, Srednia = {odd_avg}")
 
 import requests
 
