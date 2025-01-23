@@ -18,17 +18,28 @@ a = int(input("Podaj pierwszą liczbę: "))
 b = int(input("Podaj drugą liczbę: "))
 print("Iloczyn:", a * b)
 #4
-text = "W Roku Pańskim 1345, władca Henryk 12, na rzecz swoich 143209 uchwalił dekret o 20% zniżce podatków"
-cyfry = "".join(c for c in text if c.isdigit())
-wynik = cyfry[::2]
-print("Wynik:", wynik)
-#5
-def szyfruj_tekst(text, przesuniecie):
-    return "".join(chr(ord(c) - przesuniecie) for c in text)
+def operacje_na_stringu(tekst):
+    """Usuwa wszystko oprócz cyfr i wyświetla co drugą cyfrę."""
+    cyfry = ""
+    for znak in tekst:
+        if znak.isdigit():
+            cyfry += znak
+    print(cyfry[::2])
 
-tekst = input("Podaj tekst: ")
-przesuniecie = int(input("Podaj przesunięcie: "))
-print("Zaszyfrowany tekst:", szyfruj_tekst(tekst, przesuniecie))
+tekst = "W Roku Panskim 1345, władca Henryk 12, na rzecz swoich 143209 poddanych uchwalil dekret o 20%ej zniżce podatkow"
+operacje_na_stringu(tekst)
+#5
+def szyfruj_tekst(tekst, klucz):
+    """Szyfruje tekst przez zmniejszenie kodu ASCII o klucz."""
+    zaszyfrowany = ""
+    for znak in tekst:
+      zaszyfrowany += chr(ord(znak) - klucz)
+    return zaszyfrowany
+
+tekst = input("Podaj tekst do zaszyfrowania: ")
+klucz = int(input("Podaj klucz (liczbę do odjęcia od ASCII): "))
+zaszyfrowany = szyfruj_tekst(tekst, klucz)
+print(f"Zaszyfrowany tekst: {zaszyfrowany}")
 #6
 def iloczyn(*args):
     wynik = 1
