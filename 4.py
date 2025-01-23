@@ -10,22 +10,50 @@ for _ in range(n):
     result *= (a + 1)
 print("Wynik:", result)
 #3 
-text = "W Roku Pańskim 1345, władca Henryk 12, na rzecz swoich 143209 uchwalił dekret o 20% zniżce podatków"
-cleaned_text = "".join(c for c in text if not c.isdigit() and not c.isspace())
-result = cleaned_text[::-1][::4]
-print("Wynik:", result)
-#4
-def szyfruj_tekst(text, przesuniecie):
-    return "".join(chr(ord(c) - przesuniecie) for c in text)
+def operacje_na_stringu(tekst):
+    """Usuwa cyfry i spacje, a następnie wyświetla co czwarty znak od końca."""
+    nowy_tekst = ""
+    for znak in tekst:
+        if not znak.isdigit() and znak != " ":
+            nowy_tekst += znak
 
-tekst = input("Podaj tekst: ")
-przesuniecie = int(input("Podaj przesunięcie: "))
-print("Zaszyfrowany tekst:", szyfruj_tekst(tekst, przesuniecie))
+    # Wyświetlanie co czwartego znaku od końca
+    print(nowy_tekst[::-4]) #krojenie odwróconego tekstu co 4 znak
+
+# Przykład użycia
+tekst = "W Roku Panskim 1345, władca Henryk 12, na rzecz swoich 143209 poddanych uchwalil dekret o 20%ej zniżce podatków!"
+operacje_na_stringu(tekst)
+#4
+def szyfruj_tekst(tekst):
+    """Szyfruje tekst przestawiając znaki parami."""
+    zaszyfrowany_tekst = ""
+    for i in range(0, len(tekst) - 1, 2):
+        zaszyfrowany_tekst += tekst[i+1]
+        zaszyfrowany_tekst += tekst[i]
+    if len(tekst) % 2 != 0:
+        zaszyfrowany_tekst += tekst[-1]
+    return zaszyfrowany_tekst
+
+# Przykład użycia:
+tekst = input("Podaj tekst do zaszyfrowania: ")
+zaszyfrowany = szyfruj_tekst(tekst)
+print(f"Zaszyfrowany tekst: {zaszyfrowany}")
 #5
 def my_max(a, b, c):
-    return max(a, b, c)
+    """Znajduje maksimum z trzech liczb."""
+    maksimum = a
+    if b > maksimum:
+        maksimum = b
+    if c > maksimum:
+        maksimum = c
+    return maksimum
 
-print("Maksimum:", my_max(5, 2, 7))
+# Przykład użycia
+a = float(input("Podaj pierwszą liczbę: "))
+b = float(input("Podaj drugą liczbę: "))
+c = float(input("Podaj trzecią liczbę: "))
+maksimum = my_max(a, b, c)
+print(f"Maksimum: {maksimum}")
 #6
 def iloczyn(*args):
     wynik = 1
